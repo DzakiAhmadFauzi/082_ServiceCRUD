@@ -22,4 +22,8 @@ const pool = new Pool({
 app.get('/', (req, res) => {
     console.log("TEST DATA :");
 
-    
+    pool.query('SELECT * FROM biodata ORDER BY id')
+        .then(result => {
+            res.send(result.rows);
+        })
+        
